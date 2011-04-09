@@ -3,11 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="robots" content="noindex" />
-    <title>Pachube Hackday: Devices Served</title>
+    <title>Pachube international Internet of Things Hack</title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="javascripts/number-served.js?201104081744"></script>
-    <link type="text/css" rel="stylesheet" href="stylesheets/number-served.css?201104081744" />
+    <script type="text/javascript" src="javascripts/jquery.livequery.js?201104081744"></script>
+    <script type="text/javascript" src="javascripts/pachubehack.js?201104081744"></script>
+    <link type="text/css" rel="stylesheet" href="stylesheets/jquery-ui-1.8.11.custom.css?201104081744" />
+    <link type="text/css" rel="stylesheet" href="stylesheets/pachubehack.css?201104081744" />
+
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-4091770-7']);
@@ -21,35 +24,35 @@
     </script>
   </head>
   <body>
-    <header>
-        
-      <nav id="primary">
-        <ul>
-        </ul>
-      </nav>
 
+    <nav id="primary">
+      <p>
+      <label for="amount">Power:</label>
+      <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold; font-size: 1em" />
+      </p>
+
+      <div id="slider"></div>
+    </nav>
+
+    <section id="tags">
+      <ul id="recent_tags">
+      </ul>
+    </section>
+
+    <br class="clear" />
+
+    <header>
       <hgroup>
         <h1><img src="http://www.pachube.com/images/ui/logo.png?201104081744" /></h1>
       </hgroup>
     </header>
 
-    <section id="description">
-      <p>This counter shows how many public updates Pachube is receiving from devices, in realtime.</p>
-    </section>
-
-
     <section id="main">
-      <p>Devices served since you opened this page</p>
-      <div id="counter">0</div>
+      <p>Devices served since you opened this page: <span id="counter">0</span></p>
       <div id="average_rate"><span id="average">0</span> updates per second</div>
       <p id="counter_start"></p>
     </section>
 
-    <section>
-      <h2>Some Recent Tags...</h2>
-      <ul id="recent_tags">
-      </ul>
-    </section>
   </body>
 </html>
 

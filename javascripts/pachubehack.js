@@ -17,7 +17,9 @@ $(document).ready(function(){
   var api_key = "Sgu3QtSJAYrmLCRyjh9VUO1enKCnLyTnbDaEb5rrzW0";
   var counter = 0;
   var average = 0;
+  var rate = 1;
   var date = new Date;
+  var stop = false;
   
   function formatTimestamp(ts) {
     return(ts.replace(/(\..{6}Z)$/, "").replace("T", " "));
@@ -31,10 +33,10 @@ $(document).ready(function(){
     ws.send('{"headers":{"X-PachubeApiKey":"' + api_key + '"}, "method":"unsubscribe", "resource":"/#"}');
   }
 
-  function updateRecentTags(tags) {
-    for(i=0;i<tags.length;i++) {
-      $('<li><a href="http://www.pachube.com/tags/' + tags[i] + '">☞ ' + tags[i] + '</a></li>').prependTo('#recent_tags');
-      if ($('#recent_tags > li').size() > 20) {
+  function updateTags(tags) {
+     for(i=0;i<tags.length;i++) {
+      $('<li><a href="http://www.pachube.com/tags/' + tags[i] + '">' + tags[i] + '</a></li>').prependTo('#recent_tags');
+      if ($('#recent_tags > li').size() > 40) {
         $('#recent_tags > li').last().remove()
       }
     }
@@ -62,15 +64,37 @@ $(document).ready(function(){
     if (response.body) {
       counter++;
       average = (counter / (((new Date) - date)) * 1000).toFixed(2);
-      if (counter % 19 == 0) {
-        if (response.body.tags != undefined) {
-          updateRecentTags(response.body.tags);
+      if (!stop && response.body.tags != undefined) {
+        if (counter % rate == 0) {
+          updateTags(response.body.tags);
         }
-        $('#counter').html(counter).digits();
       }
+      $('#counter').html(counter).digits();
       $('#average').html(average).digits();
     }
   }
-  
+
+  $( "#slider" ).slider({
+    value:10,
+    min: 0,
+    max: 11,
+    step: 0.5,
+    slide: function( event, ui ) {
+      $( "#amount" ).val( ui.value );
+    },
+    change: function( event, ui ) {
+              rate = 23 - (ui.value * 2);
+            }
+  });
+  $( "#amount" ).val( $( "#slider" ).slider( "value" ) );
+
+  $("#recent_tags a").livequery("mouseover", function() {
+    stop = true;
+  });
+
+  $("#recent_tags a").livequery("mouseout", function() {
+    stop = false;
+  });
+
 });
 

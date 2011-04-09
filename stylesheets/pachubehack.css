@@ -6,10 +6,9 @@ html {
 body{
   font: normal medium 'Gill Sans','Gill Sans MT','Goudy Bookletter 1911','Linux Libertine O','Liberation Serif',Candara,serif;
   padding: 0;
-  margin: 20px auto;
-  width: 40em;
+  margin: 0 auto;
+  width: 60em;
   line-height: 1.75;
-  text-align: center;
 }
 
 a, a#visited {
@@ -17,8 +16,10 @@ a, a#visited {
 }
 
 body header {
-  margin: 0;
-  padding: 0;
+  margin: 10px;
+  padding: 2px;
+  float: left;
+  width: 20%;
 }
 
 section header {
@@ -35,43 +36,49 @@ h2 {
   color: #333;
 }
 
-nav#primary {
-  position:absolute;
-  top: 0;
-  left: 0;
+nav {
+  margin-bottom: 4px;
 }
 
-nav ul {
-  margin: 0;
-  padding: 0;
+.clear {
+  clear:both;
+  height:0;
 }
 
-nav li {
-  display: inline;
-  padding-left: 0.5em;
-}
 ul#recent_tags {
   margin: 0;
   padding: 0;
 }
 
   ul#recent_tags li {
+    float: left;
     list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul#recent_tags li a {
     text-align: left;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.6);
     -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.6);
     background-color: #333;
-    margin: 4px 0;
+    margin: 2px;
     cursor: pointer;
-  }
-
-  ul#recent_tags li a {
+    width: 216px;
+    height: 40px;
+    font-size: 0.8em;
     text-decoration: none;
     color: white;
     text-shadow: none;
     padding: 2px 10px;
+    display: block;
+  }
+
+  ul#recent_tags li a:hover {
+    background: rgba(0, 0, 0, 0.75);
+    
   }
 
 section#main {
@@ -80,15 +87,16 @@ section#main {
   -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
   -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
   text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
-  font-size: 2em;
+  font-size: 1.2em;
   background-color: #F06;
   color: white;
-
+  padding: 2px 10px;
+  float: right;
+  width: 75%;
+  margin: 4px 2px;
 }
 
 section#main #counter {
-  font-size: 4em;
-  text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
 }
 
 section#main #average_rate {
