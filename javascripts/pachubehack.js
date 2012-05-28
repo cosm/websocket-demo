@@ -43,7 +43,7 @@ $(document).ready(function(){
   }
 
   // Use the Pachube beta websocket server
-  ws = new WebSocket("ws://beta.pachube.com:8080/");
+  ws = new WebSocket("ws://api.cosm.com:8080/");
 
   ws.onerror = function(evt) {
     alert("Could not open WebSocket connection.");
