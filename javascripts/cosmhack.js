@@ -26,23 +26,23 @@ $(document).ready(function(){
   }
 
   function subscribe(ws, api_key) {
-    ws.send('{"headers":{"X-PachubeApiKey":"' + api_key + '"}, "method":"subscribe", "resource":"firehose"}');
+    ws.send('{"headers":{"X-ApiKey":"' + api_key + '"}, "method":"subscribe", "resource":"firehose"}');
   }
  
   function unsubscribe(ws, api_key) {
-    ws.send('{"headers":{"X-PachubeApiKey":"' + api_key + '"}, "method":"unsubscribe", "resource":"firehose"}');
+    ws.send('{"headers":{"X-ApiKey":"' + api_key + '"}, "method":"unsubscribe", "resource":"firehose"}');
   }
 
   function updateTags(tags) {
      for(i=0;i<tags.length;i++) {
-      $('<li><a href="http://www.pachube.com/tags/' + tags[i] + '">' + tags[i] + '</a></li>').prependTo('#recent_tags');
+      $('<li><a href="http://cosm.com/feeds?tag=' + tags[i] + '">' + tags[i] + '</a></li>').prependTo('#recent_tags');
       if ($('#recent_tags > li').size() > 40) {
         $('#recent_tags > li').last().remove()
       }
     }
   }
 
-  // Use the Pachube beta websocket server
+  // Use the Cosm websocket server
   ws = new WebSocket("ws://api.cosm.com:8080/");
 
   ws.onerror = function(evt) {
