@@ -14,7 +14,7 @@ $(document).ready(function(){
   }
  
   // This is my user level GET advanced api key
-  var api_key = "df-kQrokOLB5zFK1FFC6sT6rTpsvaONPj6nQDZxvU8_a-a7mDET3ptrFphRg8Lgf";
+  var api_key = "bJk-Ju2nOc-5NXrZ5CZ29U_l5wGSAKxqeEE0ZFByQjJ3Zz0g";
   var counter = 0;
   var average = 0;
   var rate = 1;
@@ -26,11 +26,11 @@ $(document).ready(function(){
   }
 
   function subscribe(ws, api_key) {
-    ws.send('{"headers":{"X-PachubeApiKey":"' + api_key + '"}, "method":"subscribe", "resource":"/#"}');
+    ws.send('{"headers":{"X-PachubeApiKey":"' + api_key + '"}, "method":"subscribe", "resource":"firehose"}');
   }
  
   function unsubscribe(ws, api_key) {
-    ws.send('{"headers":{"X-PachubeApiKey":"' + api_key + '"}, "method":"unsubscribe", "resource":"/#"}');
+    ws.send('{"headers":{"X-PachubeApiKey":"' + api_key + '"}, "method":"unsubscribe", "resource":"firehose"}');
   }
 
   function updateTags(tags) {
